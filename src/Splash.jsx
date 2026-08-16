@@ -16,7 +16,7 @@ function Splash() {
     <div>
       <div>
         <Link to="/players">
-          <h1>UCL Zone</h1>
+<h1 className="text-4xl font-bold text-blue-600">UCL Zone</h1>
           <p>All players, every team</p>
         </Link>
       </div>

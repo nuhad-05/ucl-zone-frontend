@@ -7,11 +7,14 @@ function App() {
   const [totalPages, setTotalPages] = useState(0)
   const [team, setTeam] = useState('')
   const [position, setPosition] = useState('')
+  const [search, setSearch] = useState('')
 
   useEffect(() => {
     let url
 
-    if (team && position) {
+    if (search) {
+      url = `http://localhost:8080/players/search?name=${encodeURIComponent(search)}`
+    } else if (team && position) {
       url = `http://localhost:8080/players/team/${team}/position/${position}`
     } else if (team) {
       url = `http://localhost:8080/players/team/${team}`
@@ -33,14 +36,25 @@ function App() {
         }
       })
       .catch((error) => console.error('Error fetching players:', error))
-  }, [page, team, position])
+  }, [page, team, position, search])
 
   return (
     <div>
       <h1>UCL Zone</h1>
 
       <div>
-        <select value={team} onChange={(e) => { setTeam(e.target.value); setPage(0) }}>
+        <input
+          type="text"
+          placeholder="Search player name"
+          value={search}
+          onChange={(e) => { setSearch(e.target.value); setPage(0) }}
+        />
+
+        <select
+          value={team}
+          disabled={!!search}
+          onChange={(e) => { setTeam(e.target.value); setPage(0) }}
+        >
           <option value="">All teams</option>
           <option value="Real Madrid">Real Madrid</option>
           <option value="Manchester City">Manchester City</option>
@@ -52,7 +66,11 @@ function App() {
           <option value="Inter">Inter</option>
         </select>
 
-        <select value={position} onChange={(e) => { setPosition(e.target.value); setPage(0) }}>
+        <select
+          value={position}
+          disabled={!!search}
+          onChange={(e) => { setPosition(e.target.value); setPage(0) }}
+        >
           <option value="">All positions</option>
           <option value="Attacker">Attacker</option>
           <option value="Midfielder">Midfielder</option>
@@ -63,7 +81,7 @@ function App() {
 
       <PlayerTable players={players} />
 
-      {!team && !position && (
+      {!team && !position && !search && (
         <div>
           <button onClick={() => setPage((p) => p - 1)} disabled={page === 0}>
             Previous

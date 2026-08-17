@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import PlayerTable from './PlayerTable'
+import TEAM_BIOS from './TeamBios'
 
 function PlayerPage() {
   const { teamName } = useParams()
@@ -40,14 +41,21 @@ function PlayerPage() {
       .catch((error) => console.error('Error fetching players:', error))
   }, [page, teamName, position, search])
 
-return (
+  return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <Link to="/" className="text-sm text-neutral-500 hover:text-neutral-800">
         ← Back
       </Link>
-      <h1 className="text-2xl font-semibold mt-2 mb-6">
+
+      <h1 className="text-2xl font-semibold mt-2 mb-2">
         {teamName ? decodeURIComponent(teamName) : 'All Players'}
       </h1>
+
+      {teamName && TEAM_BIOS[decodeURIComponent(teamName)] && (
+        <p className="text-sm text-neutral-500 mb-6 max-w-2xl">
+          {TEAM_BIOS[decodeURIComponent(teamName)]}
+        </p>
+      )}
 
       <div className="flex gap-3 mb-6">
         <input

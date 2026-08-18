@@ -9,6 +9,8 @@ const TEAM_BIOS = {
     'Five-time champions known for their possession-based "tiki-taka" style under Pep Guardiola in the late 2000s and early 2010s. Barcelona have produced some of the tournament\'s most iconic teams, built around homegrown talent from their La Masia academy.',
   'Arsenal':
     'Long a Premier League mainstay, Arsenal reached their first Champions League final in 2006. After years away from the competition\'s top places, they\'ve returned as consistent quarter and semi-final contenders in recent seasons.',
+  'Paris Saint Germain':
+    'Backed by major investment since 2011, PSG have become perennial contenders, reaching their first final in 2020. They won their first Champions League title in 2025, capping over a decade of pursuit of European football\'s biggest prize.',
   'Paris Saint-Germain':
     'Backed by major investment since 2011, PSG have become perennial contenders, reaching their first final in 2020. They won their first Champions League title in 2025, capping over a decade of pursuit of European football\'s biggest prize.',
   'Liverpool':

@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 
 const TEAMS = [
-  { name: 'Real Madrid', color: 'bg-yellow-400' },
-  { name: 'Manchester City', color: 'bg-sky-400' },
-  { name: 'Bayern Munich', color: 'bg-red-600' },
-  { name: 'Barcelona', color: 'bg-blue-800' },
-  { name: 'Arsenal', color: 'bg-red-700' },
-  { name: 'Paris Saint-Germain', color: 'bg-blue-900' },
-  { name: 'Liverpool', color: 'bg-red-600' },
-  { name: 'Inter', color: 'bg-blue-950' },
+  { name: 'Real Madrid', label: 'Real Madrid', color: 'bg-yellow-400' },
+  { name: 'Manchester City', label: 'Manchester City', color: 'bg-sky-400' },
+  { name: 'Bayern Munich', label: 'Bayern München', color: 'bg-red-600' },
+  { name: 'Barcelona', label: 'Barcelona', color: 'bg-blue-800' },
+  { name: 'Arsenal', label: 'Arsenal', color: 'bg-red-700' },
+  { name: 'Paris Saint Germain', label: 'Paris Saint-Germain', color: 'bg-blue-900' },
+  { name: 'Liverpool', label: 'Liverpool', color: 'bg-red-600' },
+  { name: 'Inter', label: 'Inter', color: 'bg-blue-950' },
 ]
 
 function Splash() {
@@ -34,7 +34,7 @@ function Splash() {
             >
               {team.name.slice(0, 3).toUpperCase()}
             </div>
-            <p className="text-xs text-neutral-600">{team.name}</p>
+            <p className="text-xs text-neutral-600">{team.label}</p>
           </Link>
         ))}
       </div>
